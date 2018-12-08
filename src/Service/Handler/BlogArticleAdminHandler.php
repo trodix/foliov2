@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Services\Handler;
+namespace App\Service\Handler;
 
+use App\Service\Handler\General\CommonHandler;
 use App\Entity\BlogArticle;
-use Doctrine\ORM\EntityManager;
-use App\Services\Handler\CommonHandler;
 
-class BlogArticleAdminHandler extends CommonHandler {
-
+class  BlogArticleAdminHandler extends CommonHandler
+{
 	protected $blogArticleRepo;
-
-	public function __construct(EntityManager $em) {
-		$this->em = $em;
-		// $this->session = $session;
-		$this->initRepositories();
-	}
 
 	public function initRepositories()
 	{
@@ -33,6 +26,7 @@ class BlogArticleAdminHandler extends CommonHandler {
 	{
 
 		$blogArticle->setHeadlineSlug(uniqid());
+
 		$this->em->persist($blogArticle);
 		if ($andFlush) {
 			$this->em->flush();
@@ -50,10 +44,26 @@ class BlogArticleAdminHandler extends CommonHandler {
 	 */
 	public function deleteBlogArticle(BlogArticle $blogArticle)
 	{
-        $this->em->remove($blogArticle);
+		$this->em->remove($blogArticle);
+		$this->em->flush();
+
+		return true;
+	}
+
+	/**
+     * Delete the file
+     *
+     * @param BlogArticle $blogArticle
+     *
+     * @return bool
+     */
+    public function deleteFile(BlogArticle $blogArticle)
+    {
+        $blogArticle->setImage(null);
+
         $this->em->flush();
 
         return true;
-	}
+    }
 
 }
