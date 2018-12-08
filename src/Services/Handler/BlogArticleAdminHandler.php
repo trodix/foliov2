@@ -2,11 +2,19 @@
 
 namespace App\Services\Handler;
 
+use App\Entity\BlogArticle;
+use Doctrine\ORM\EntityManager;
 use App\Services\Handler\CommonHandler;
 
 class BlogArticleAdminHandler extends CommonHandler {
 
-    protected $categoryRepo;
+	protected $blogArticleRepo;
+
+	public function __construct(EntityManager $em) {
+		$this->em = $em;
+		// $this->session = $session;
+		$this->initRepositories();
+	}
 
 	public function initRepositories()
 	{
@@ -24,6 +32,7 @@ class BlogArticleAdminHandler extends CommonHandler {
 	public function saveBlogArticle(BlogArticle $blogArticle, bool $andFlush = true)
 	{
 
+		$blogArticle->setHeadlineSlug(uniqid());
 		$this->em->persist($blogArticle);
 		if ($andFlush) {
 			$this->em->flush();

@@ -24,9 +24,10 @@
             {% if articles is not null and articles|length > 0 %}
                 {% for article in articles %}
                 <tr>
-                    <td><a href="{{ path('admin_blog_article_edit') }}">{{ article.title }}</a></td>
-                    <td>{{ article.isActive }}</td>
-                    <td><a href="{{ path('admin_blog_article_remove') }}"><i class="fas fa-trash-alt" title="Supprimer"></i></a></td>
+                    <td><a href="{{ path('admin_blog_article_edit', {'id': article.id}) }}">{{ article.headline }}</a></td>
+                    <td>{{ true }}</td>
+                    <td><a class="delete" href="{{ path('admin_blog_article_delete', {'id': article.id}) }}" title="Supprimer" data-delete="true" data-confirm="Are you sure?" rel="nofollow"><i class="fas fa-trash-alt"></i></a></td>
+                    {# <td><a class="delete" href="#" title="Supprimer" data-delete="true" data-confirm="Are you sure?" rel="nofollow"><i class="fas fa-trash-alt"></i></a></td> #}
                 </tr>
                 {% endfor %}
             {% else %}

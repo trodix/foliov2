@@ -27,10 +27,35 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Services\Handler\:
-        resource: '../src/Services/Handler'
-        tags: ['app.services.handlers']
+    # # PROVIDER
+    # app.provider.common:
+    #     class: 'App\Services\Provider\CommonProvider'
+    #     calls:
+    #         - ['setSession', ['@session']]
+    #         - ['setEntityManager', ['@doctrine.orm.entity_manager']]
+    #         - ['initEntityManagers', []]
+    #         - ['initRepositories', []]
 
-    App\Services\Provider\:
-        resource: '../src/Services/Provider'
-        tags: ['app.services.providers']
+    # # HANDLER
+    # app.handler.common:
+    #     class: 'App\Services\Handler\CommonHandler'
+    #     calls:
+    #         - ['setSession', ['@session']]
+    #         - ['setEntityManager', ['@doctrine.orm.entity_manager']]
+    #         - ['initEntityManagers', []]
+    #         - ['initRepositories', []]
+
+    # App\Services\Handler\:
+    #     resource: '../src/Services/Handler'
+    #     tags: ['app.services.handlers']
+    #     parent: 'app.handler.common'
+    #     autowire: true
+    #     autoconfigure: false
+    #     public: true # allow to call the service with XxHandler::class
+
+    # App\Services\Provider\:
+    #     resource: '../src/Services/Provider'
+    #     parent: 'app.provider.common'
+    #     autowire: true
+    #     autoconfigure: false
+    #     public: true # allow to call the service with XxHandler::class
