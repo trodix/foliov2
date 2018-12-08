@@ -1,5 +1,5 @@
 fm_elfinder:
-    #assets_path: / # default is /assets, this is where css/js elfinder files are
+    assets_path: /assets/library # default is /assets, this is where css/js elfinder files are
     instances:
         instance_admin:
             locale: '%locale%' # defaults to current request locale

@@ -39,7 +39,7 @@
             "*": "dist"
         },
         "sort-packages": true,
-        "component-dir": "public/assets"
+        "component-dir": "public/assets/library"
     },
     "autoload": {
         "psr-4": {
