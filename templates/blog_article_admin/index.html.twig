@@ -1,0 +1,42 @@
+{% extends 'base_bo.html.twig' %}
+
+{% block title %}Index | Les articles de blog{% endblock %}
+
+{% block body %}
+
+<h1>Liste des articles de blog</h1>
+
+<div class="row">
+    <a href="{{ path('admin_blog_article_add') }}" class="btn btn-primary">Ajouter un article</a>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>En ligne</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if articles is not null and articles|length > 0 %}
+                {% for article in articles %}
+                <tr>
+                    <td><a href="{{ path('admin_blog_article_edit') }}">{{ article.title }}</a></td>
+                    <td>{{ article.isActive }}</td>
+                    <td><a href="{{ path('admin_blog_article_remove') }}"><i class="fas fa-trash-alt" title="Supprimer"></i></a></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun article</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

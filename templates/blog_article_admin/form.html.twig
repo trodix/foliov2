@@ -1,0 +1,9 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+<div class="container">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" class="btn btn-success" value="Enregistrer">
+    {{ form_end(form) }}
+</div>

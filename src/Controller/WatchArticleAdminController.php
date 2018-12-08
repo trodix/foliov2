@@ -8,15 +8,15 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin", name="admin_")
  */
-class AdminController extends AbstractController
+class WatchArticleAdminController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/watch/article", name="watch_article_index")
      */
     public function index()
     {
-        return $this->render('admin/index.html.twig', [
-
+        return $this->render('watch_article_admin/index.html.twig', [
+            'controller_name' => 'WatchArticleAdminController',
         ]);
     }
 }

@@ -15,7 +15,6 @@ class BlogArticleType extends AbstractType
             ->add('headline')
             ->add('subhead')
             ->add('body')
-            ->add('headlineSlug')
         ;
     }
 

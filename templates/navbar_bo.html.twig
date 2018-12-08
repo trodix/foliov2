@@ -1,0 +1,40 @@
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="{{ path('admin_index') }}"><i class="fas fa-home"></i> Accueil</a>
+            </li>
+            <li class="active">
+                <a href="#blogMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-newspaper"></i> Blog</a>
+                <ul class="collapse list-unstyled" id="blogMenu">
+                    <li>
+                        <a href="{{ path('admin_blog_article_index') }}"><i class="fas fa-align-left"></i> Pages</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#watchArticle" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-atlas"></i> Veille</a>
+                <ul class="collapse list-unstyled" id="watchArticle">
+                    <li>
+                        <a href="{{ path('admin_watch_article_index') }}"><i class="fas fa-align-left"></i> Article</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#skills" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-briefcase"></i> Compétences</a>
+                <ul class="collapse list-unstyled" id="skills">
+                    <li>
+                        <a href="{{ path('admin_skill_index') }}"><i class="fas fa-star"></i> Compétence</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{ path('admin_society_index') }}"><i class="fas fa-building"></i> Société</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Fin Sidebar -->
