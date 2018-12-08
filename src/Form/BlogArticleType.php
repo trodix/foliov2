@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\BlogArticle;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,9 @@ class BlogArticleType extends AbstractType
         $builder
             ->add('headline')
             ->add('subhead')
-            ->add('body')
+            ->add('body', CKEditorType::class, [
+                'config_name' => 'config_admin'
+            ])
         ;
     }
 
