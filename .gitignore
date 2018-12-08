@@ -17,4 +17,5 @@
 ###< symfony/web-server-bundle ###
 
 /public/uploads/
-/public/assets/library/*
+/public/assets/library/
+!/public/assets/library/.gitkeep
