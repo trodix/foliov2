@@ -10,9 +10,9 @@ fos_ck_editor:
             # uiColor: "#f3f4f5"
             # toolbar: [ ["NewPage","-","Templates","-","Undo","Redo"], ["Bold","Italic","Underline","Strike","Subscript","Superscript","-","RemoveFormat"], ["Image","Table","HorizontalRule","SpecialChar","PageBreak","Iframe"], ["Link","Unlink","Anchor"], ["Find","Replace","-","-","Scayt"], "\/", ["NumberedList","BulletedList","-","Outdent","Indent","-","-","JustifyLeft","JustifyCenter","JustifyRight","JustifyBlock"], ["Styles","Format","FontSize","TextColor","BGColor"], ["Maximize","ShowBlocks", "Source"] ]
             # allowedContent: true
-            # filebrowserBrowseRoute: 'elfinder'
-            # filebrowserBrowseRouteParameters:
-            #     instance: 'instance_admin' # config instance name below
+            filebrowserBrowseRoute: 'elfinder'
+            filebrowserBrowseRouteParameters:
+                 instance: 'instance_admin' # config instance name below
             # extraPlugins: 'templates'
             # templates:    'templates_perso'
             # templates_replaceContent: false   #Permet de désactiver le remplacer contenu par défaut

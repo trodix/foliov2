@@ -1,4 +1,13 @@
 {
+    "components/elfinder": {
+        "version": "3.1.1"
+    },
+    "components/jquery": {
+        "version": "3.3.1"
+    },
+    "components/jqueryui": {
+        "version": "1.12.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -92,8 +101,20 @@
             "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
         }
     },
+    "helios-ag/fm-elfinder-bundle": {
+        "version": "7.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "7.0",
+            "ref": "fb9152ee3538f968d9e0f2c763ecbe4ab63eff26"
+        }
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "kriswallsmith/assetic": {
+        "version": "v1.0.5"
     },
     "monolog/monolog": {
         "version": "1.24.0"
@@ -128,6 +149,9 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
+    "robloach/component-installer": {
+        "version": "0.2.3"
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -136,6 +160,9 @@
             "version": "5.2",
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
         }
+    },
+    "studio-42/elfinder": {
+        "version": "2.1.43"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.1.3"

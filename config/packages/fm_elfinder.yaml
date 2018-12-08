@@ -1,0 +1,36 @@
+fm_elfinder:
+    #assets_path: / # default is /assets, this is where css/js elfinder files are
+    instances:
+        instance_admin:
+            locale: '%locale%' # defaults to current request locale
+            editor: 'ckeditor' # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
+            #editor_template: custom template for your editor # default null
+            #path_prefix: / # for setting custom assets path prefix, useful for non vhost configurations, i.e. http://127.0.0.1/mysite/
+            #fullscreen: true|false # default is true, applies to simple and ckeditor editors
+            #theme: smoothness # jquery theme, default is 'smoothness'
+            include_assets: true # disable if you want to manage loading of javascript and css assets manually
+            #visible_mime_types: ['image/png', 'image/jpg', 'image/jpeg'] # only show these mime types, defaults to show all
+            connector:
+                #debug: true|false # defaults to false
+                binds:
+                    upload.presave:
+                        - Plugin.AutoResize.onUpLoadPreSave
+                        - Plugin.Sanitizer.onUpLoadPreSave
+                plugins:
+                    Sanitizer:
+                        targets: ['\\','/',':','*','?','"','<','>','|', ' ', ',' , '%']
+                roots:       # at least one root must be defined, defines root filemanager directories
+                    uploads:
+                        #show_hidden: true|false # defaults to false, hides dotfiles
+                        driver: 'LocalFileSystem'
+                        path: 'uploads/library'
+                        plugins: #Specique
+                            AutoResize:
+                                enable: true
+                                maxWidth: 2000
+                                quality: 90
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'application/zip', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/x-rar-compressed', 'application/octet-stream']
+                        upload_deny: ['all']
+                        upload_max_size: '8M' # also file upload sizes restricted in php.ini
+                        #attributes: example of setting attributes permission
+                        #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }
