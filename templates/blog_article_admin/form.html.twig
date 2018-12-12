@@ -1,9 +1,16 @@
+{% trans_default_domain 'admin' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 
 <div class="container">
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.headline) }}
+    {{ form_row(form.subhead) }}
+    {{ form_row(form.body) }}  
+    
     <input type="submit" class="btn btn-success" value="Enregistrer">
+    {{ form_rest(form) }}
     {{ form_end(form) }}
 </div>

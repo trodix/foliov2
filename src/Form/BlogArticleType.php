@@ -25,6 +25,15 @@ class BlogArticleType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => BlogArticle::class,
+            'translation_domain' => 'admin'
         ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'app_blog_article_admin';
     }
 }

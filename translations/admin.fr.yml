@@ -1,0 +1,4 @@
+app_blog_article_admin:
+    headline: Titre
+    subhead: Sous-titre
+    body: Contenu
