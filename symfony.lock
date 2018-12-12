@@ -1,4 +1,7 @@
 {
+    "behat/transliterator": {
+        "version": "v1.2.0"
+    },
     "components/elfinder": {
         "version": "3.1.1"
     },
@@ -101,6 +104,9 @@
             "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
         }
     },
+    "gedmo/doctrine-extensions": {
+        "version": "v2.4.36"
+    },
     "helios-ag/fm-elfinder-bundle": {
         "version": "7.0",
         "recipe": {
@@ -159,6 +165,15 @@
             "branch": "master",
             "version": "5.2",
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        }
+    },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
         }
     },
     "studio-42/elfinder": {

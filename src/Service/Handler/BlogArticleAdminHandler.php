@@ -25,7 +25,7 @@ class  BlogArticleAdminHandler extends CommonHandler
 	public function saveBlogArticle(BlogArticle $blogArticle, bool $andFlush = true)
 	{
 
-		$blogArticle->setHeadlineSlug(uniqid());
+		// $blogArticle->setHeadlineSlug(uniqid());
 
 		$this->em->persist($blogArticle);
 		if ($andFlush) {
