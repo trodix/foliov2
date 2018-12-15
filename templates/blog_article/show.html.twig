@@ -1,0 +1,16 @@
+{% extends 'base_fo.html.twig' %}
+
+{% block title %}{{ article.headline }} - Blog{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col">
+            <h1>{{ article.headline }}</h1>
+            <article>
+                {{ article.body|raw  }}
+            </article>
+        </div>
+    </div>
+
+{% endblock %}
