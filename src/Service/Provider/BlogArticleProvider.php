@@ -31,6 +31,13 @@ class BlogArticleProvider extends CommonProvider
 	public function getOneById(int $id)
     {
         return $this->blogArticleRepo->findOneById($id);
-    }
+	}
+	
+	public function getOneBySlug(String $slug)
+	{
+		return $this->blogArticleRepo->findOneBy([
+			"headlineSlug" => $slug
+		]);
+	}
 
 }

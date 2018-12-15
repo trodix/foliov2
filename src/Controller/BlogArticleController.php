@@ -25,12 +25,12 @@ class BlogArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{id}", name="article_show")
+     * @Route("/article/{headline_slug}", name="article_show")
      */
-    public function show(BlogArticleProvider $provider, $id)
+    public function show(BlogArticleProvider $provider, $headline_slug)
     {
 
-        $article = $provider->getOneById($id);
+        $article = $provider->getOneBySlug($headline_slug);
 
         return $this->render('blog_article/show.html.twig', [
             'article' => $article
