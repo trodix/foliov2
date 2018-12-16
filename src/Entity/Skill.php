@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SkillRepository")
+ * @Gedmo\Uploadable(allowOverwrite=true, filenameGenerator="SHA1")
  */
 class Skill
 {
@@ -23,6 +27,7 @@ class Skill
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
     private $image;
 
@@ -30,6 +35,13 @@ class Skill
      * @ORM\Column(type="integer", nullable=true)
      */
     private $_order;
+
+    public function displayImage($size = null)
+    {
+        return $this->getImage() !== null
+        ? "public/uploads/library/skill/".$size.$this->getImage()
+        : "public/assets/img/noimage.png";
+    }
 
     public function getId(): ?int
     {
@@ -48,12 +60,12 @@ class Skill
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage($image): self
     {
         $this->image = $image;
 

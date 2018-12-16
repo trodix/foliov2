@@ -5,7 +5,7 @@ namespace App\Service\Handler;
 use App\Service\Handler\General\CommonHandler;
 use App\Entity\BlogArticle;
 
-class  BlogArticleAdminHandler extends CommonHandler
+class BlogArticleAdminHandler extends CommonHandler
 {
 	protected $blogArticleRepo;
 

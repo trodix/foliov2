@@ -2,18 +2,23 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\Provider\SkillProvider;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SkillController extends AbstractController
 {
     /**
-     * @Route("/skill", name="skill")
+     * @Route("/skill", name="skill_index")
      */
-    public function index()
+    public function index(SkillProvider $provider)
     {
+
+        $skills = $provider->getAllSkill();
+
         return $this->render('skill/index.html.twig', [
-            'controller_name' => 'SkillController',
+            'skills' => $skills
         ]);
     }
+
 }

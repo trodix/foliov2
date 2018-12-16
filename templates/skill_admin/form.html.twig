@@ -1,0 +1,35 @@
+{% trans_default_domain 'admin' %}
+
+<div class="container">
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col">
+            {{ form_errors(form) }}
+        </div>     
+    </div>
+    
+    <div class="row">
+        <div class="col-1">
+            {{ form_row(form._order) }}
+        </div>
+        <div class="col-11">
+            {{ form_row(form.title) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-4">
+            {{ form_row(form.image) }}
+        </div>
+        {% if skill is defined and skill.image is not null %}
+            <div class="col-4">
+                <img src="{{ skill.displayImage() }}" alt="">
+            </div>
+        {% endif %}
+    </div>
+    
+        <input type="submit" class="btn btn-success" value="Enregistrer">
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>
