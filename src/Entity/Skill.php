@@ -36,12 +36,14 @@ class Skill
      */
     private $_order;
 
-    public function displayImage($size = null)
-    {
-        return $this->getImage() !== null
-        ? "public/uploads/library/skill/".$size.$this->getImage()
-        : "public/assets/img/noimage.png";
-    }
+    // public function displayImage($size = null)
+    // {
+    //     $prefix = $size !== null ? $size . "_" : null;
+
+    //     return $this->getImage() !== null
+    //     ? "public/uploads/library/skill/".$prefix.$this->getImage()
+    //     : "public/assets/img/noimage.png";
+    // }
 
     public function getId(): ?int
     {

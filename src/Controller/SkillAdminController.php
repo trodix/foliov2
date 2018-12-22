@@ -64,7 +64,7 @@ class SkillAdminController extends AbstractController
     public function edit(Skill $skill, Request $request, SkillAdminHandler $handler)
     {
         $oldFilePath = $skill->getImage();
-        
+
         if($skill->getImage() !== null) {
             $skill->setImage(new File($this->getParameter('skill_directory').'/'.$skill->getImage()));
         }
@@ -86,7 +86,11 @@ class SkillAdminController extends AbstractController
         return $this->render('skill_admin/edit.html.twig', [
             'form' => $form->createView(),
             'skill' => $skill,
-            'skill_directory' => $this->getParameter('skill_directory').'/'
+            'ressource_path' => [
+                'skill' => [
+                    'image' => 'uploads/library/skill/'.$oldFilePath
+                ]
+            ]
         ]);
     }
 
@@ -104,6 +108,24 @@ class SkillAdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_skill_index');
+    }
+
+    /**
+     * @Route("/skill/{id}/image/delete", name="skill_image_delete", methods={"GET"})
+     * @ParamConverter("skill", options={"id": "id"})
+     */
+    public function deleteImage(Skill $skill, SkillAdminHandler $handler)
+    {
+        if ($handler->deleteFile($skill)) {
+            $this->addFlash('success', 'admin_skill_image.flash.deleted');
+        }
+        else {
+            $this->addFlash('error', 'admin_skill_image.flash.delete_error');
+        }
+
+        return $this->redirectToRoute('admin_skill_edit', [
+            'id' => $skill->getId()
+        ]);
     }
 
 }
