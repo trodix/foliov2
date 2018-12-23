@@ -2,13 +2,19 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WatchArticleRepository")
  */
 class WatchArticle
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -27,7 +33,14 @@ class WatchArticle
     private $description;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $titleSlug;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
     private $image;
 
@@ -65,12 +78,12 @@ class WatchArticle
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage($image): self
     {
         $this->image = $image;
 
@@ -88,4 +101,17 @@ class WatchArticle
 
         return $this;
     }
+
+    public function getTitleSlug(): ?string
+    {
+        return $this->titleSlug;
+    }
+
+    public function setTitleSlug(string $titleSlug): self
+    {
+        $this->titleSlug = $titleSlug;
+
+        return $this;
+    }
+
 }

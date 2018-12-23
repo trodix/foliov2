@@ -1,20 +1,42 @@
-<!DOCTYPE html>
+{% extends 'base_bo.html.twig' %}
 
-<title>Hello {{ controller_name }}!</title>
+{% block title %}Index | Les articles de veille{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h1>Liste des articles de veille</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/WatchArticleAdminController.php'|file_link(0) }}">src/Controller/WatchArticleAdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/watch_article_admin/index.html.twig'|file_link(0) }}">templates/watch_article_admin/index.html.twig</a></code></li>
-    </ul>
+<div class="row">
+    <a href="{{ path('admin_watch_article_add') }}" class="btn btn-primary">Ajouter un article</a>
 </div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>En ligne</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if articles is not null and articles|length > 0 %}
+                {% for article in articles %}
+                <tr>
+                    <td><a href="{{ path('admin_watch_article_edit', {'id': article.id}) }}">{{ article.title }}</a></td>
+                    <td>{{ true }}</td>
+                    <td><a class="delete" href="{{ path('admin_watch_article_delete', {'id': article.id}) }}" title="Supprimer" data-delete="true" data-confirm="Are you sure?" rel="nofollow"><i class="fas fa-trash-alt"></i></a></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun article</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {% endblock %}

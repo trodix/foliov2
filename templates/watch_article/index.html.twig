@@ -1,20 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_fo.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Liste des articles - Veille{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="row">
+        <div class="col">
+            <h1>Ma veille technologique</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/WatchArticleController.php'|file_link(0) }}">src/Controller/WatchArticleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/watch_article/index.html.twig'|file_link(0) }}">templates/watch_article/index.html.twig</a></code></li>
-    </ul>
-</div>
+            {# <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date de création</th>
+                        <th>Titre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for article in articles %}
+                    <tr>
+                        <td>
+                            {{ article.createdAt|date('d-m-Y') }}
+                        </td>
+                        <td>
+                            <a href="{{ path('watch_article_show', {'title_slug': article.titleSlug}) }}">{{ article.title }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> #}
+            <div class="articles">
+                {% for article in articles %}
+                    <div  id="watch-article-{{article.id}}" class="row">
+                        <article>
+                            <div class="d-flex flex-wrap p-4">
+                                <img class="m-2" src="{{ asset('uploads/library/watch_article/' ~ article.image) }}" alt="" height=150>
+                                <div lass="m-2">
+                                    <a href="{{ path('watch_article_show', {'title_slug': article.titleSlug}) }}">
+                                        <h2 class="p-1">{{ article.title }}</h2>
+                                    </a>
+                                    <p class="">{{ (article.description|length > 250 ? article.description|slice(0, 250) ~ '...' 
+                                        ~ ' <a href="' ~ path('watch_article_show', {'title_slug': article.titleSlug}) 
+                                        ~ '">Voir plus</a>' : article.description)|raw }}
+                                    </p>
+                                </div>
+                            </div>                     
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

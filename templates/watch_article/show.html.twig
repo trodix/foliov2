@@ -1,0 +1,17 @@
+{% extends 'base_fo.html.twig' %}
+
+{% block title %}{{ article.title }} - Veille Téchnologique{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col">
+            <h1>{{ article.title }}</h1>
+            <article>
+                <img class="m-2" src="{{ asset('uploads/library/watch_article/' ~ article.image) }}" alt="" height=200>
+                {{ article.description|raw  }}
+            </article>
+        </div>
+    </div>
+
+{% endblock %}

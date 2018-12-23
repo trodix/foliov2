@@ -35,7 +35,7 @@ class SkillAdminHandler extends CommonHandler
 			 * get the file instance of the uploaded file via the form
 			*/
 			$image = $skill->getImage();
-			$imageName = $this->fileUploader->upload($image);
+			$imageName = $this->fileUploader->upload($image, "skill");
 			$skill->setImage($imageName);
 
 		} else {

@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\WatchArticle;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class WatchArticleType extends AbstractType
 {
@@ -13,8 +15,10 @@ class WatchArticleType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description')
-            ->add('image')
+            ->add('description', CKEditorType::class, [
+                'config_name' => 'config_admin'
+            ])
+            ->add('image', FileType::class)
             ->add('_order')
         ;
     }

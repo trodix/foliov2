@@ -15,8 +15,10 @@ class FileUploader
         $this->targetDirectory = $targetDirectory;
     }
 
-    public function upload(UploadedFile $file)
+    public function upload(UploadedFile $file, $directoryName = "divers")
     {
+        $this->setTargetDirectory($this->getTargetDirectory() ."/". $directoryName);
+
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
         try {
@@ -44,6 +46,11 @@ class FileUploader
     public function getTargetDirectory()
     {
         return $this->targetDirectory;
+    }
+
+    public function setTargetDirectory($targetDirectory)
+    {
+        $this->targetDirectory = $targetDirectory;
     }
 
 }
