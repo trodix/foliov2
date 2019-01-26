@@ -35,9 +35,9 @@
                             <div class="d-flex flex-wrap p-4">
                                 <img class="m-2" src="{{ asset('uploads/library/watch_article/' ~ article.image) }}" alt="" height=150>
                                 <div lass="m-2">
-                                    <a href="{{ path('watch_article_show', {'title_slug': article.titleSlug}) }}">
-                                        <h2 class="p-1">{{ article.title }}</h2>
-                                    </a>
+                                    
+                                    <h2 class="p-1"><a href="{{ path('watch_article_show', {'title_slug': article.titleSlug}) }}">{{ article.title }}</a></h2>
+                                    
                                     <p class="">{{ (article.description|length > 250 ? article.description|slice(0, 250) ~ '...' 
                                         ~ ' <a href="' ~ path('watch_article_show', {'title_slug': article.titleSlug}) 
                                         ~ '">Voir plus</a>' : article.description)|raw }}

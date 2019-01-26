@@ -3,7 +3,7 @@
 namespace App\Service\Handler\General;
 
 use App\Service\FileUploader;
-// use App\Service\GlobalService;
+use App\Service\GlobalService;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -11,7 +11,7 @@ abstract class CommonHandler
 {
     protected $em;
     protected $session;
-    //protected $gs;
+    protected $gs;
     protected $fileUploader;
 
 
@@ -30,10 +30,10 @@ abstract class CommonHandler
         $this->fileUploader = $fileUploader;
     }
 
-    // public function setGlobalService(GlobalService $gs)
-    // {
-    //     $this->gs = $gs;
-    // }
+    public function setGlobalService(GlobalService $gs)
+    {
+        $this->gs = $gs;
+    }
 
     public function initEntityManagers(){}
 

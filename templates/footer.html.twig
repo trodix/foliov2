@@ -1,0 +1,46 @@
+{% set _society = global.getSociety %}
+
+<div class="fixed-bottom">
+    <footer class="py-5">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-center">
+                {# <div class="col-12 col-md-4 mx-md-5">
+                    <h2>Réseaux sociaux</h2>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                    </ul>
+                </div> #}
+                <div class="col-12 col-md-4 mx-md-5">
+                    <h2>Me contacter</h2>
+                    <div class="row">
+                        <p>
+                            {% set _fullAdress = _society.address ~ (_society.address ? ', ') ~ _society.zipcode ~ ' ' ~ _society.city %}
+                            <i class="fas fa-map-marker-alt"></i> Adresse: <a href="https://www.google.com/maps/search/?api=1&query={{_fullAdress}}" target="_blank">{{ _fullAdress }}</a><br>
+                            <i class="fas fa-at"></i> Mail: <a href="mailto:{{_society.emailPublic}}" target="_blank">{{ _society.emailPublic }}</a><br>
+                            <i class="fas fa-phone"></i> Tél: <a href="tel:{{_society.phoneMobile}}">{{ _society.phoneMobile }}</a><br>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex flex-column flex-md-row">
+                            <div class="social-icons">
+                                <a class="mx-2" href="{{_society.facebookLink}}" target="_blank"><i class="fab fa-facebook"></i></a>
+                                <a class="mx-2" href="{{_society.twitterLink}}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-2" href="{{_society.linkedinLink}}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a class="mx-2" href="{{_society.githubLink}}" target="_blank"><i class="fab fa-github"></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mb-2 mt-5">
+                    <p>2016 - {{ "now"|date('Y') }} &copy; {{ _society.name }}, Tous droits réservés | <a href="#">Mentions légales</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+

@@ -35,7 +35,7 @@ services:
         calls:
             - ['setSession', ['@session']]
             - ['setEntityManager', ['@doctrine.orm.entity_manager']]
-            # - ['setGlobalService', ['@sfb.service.global']]
+            - ['setGlobalService', ['@App\Service\GlobalService']]
             - ['initEntityManagers', []]
             - ['initRepositories', []]
             - ['setFileUploader', []]
@@ -67,3 +67,10 @@ services:
         public: true
         arguments:
             $targetDirectory: '%uploads_directory%'
+
+    App\Service\Global:
+        autowire: true
+        autoconfigure: false
+        public: true
+        arguments:
+            - '@App\Service\Provider\SocietyAdminProvider'

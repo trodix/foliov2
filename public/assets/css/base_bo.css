@@ -1,0 +1,32 @@
+.form-control, .custom-file-label, .btn {
+    border-radius: 0;
+}
+
+h1 {
+    color: #e67e22;
+}
+
+.fa-trash-alt, .fa-times-circle {
+    color: #c0392b;
+}
+
+.fa-check-circle {
+    color: #27ae60;
+}
+
+a:hover .fas {
+    color: #bdc3c7bb;
+}
+
+a {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0555ac;
+}

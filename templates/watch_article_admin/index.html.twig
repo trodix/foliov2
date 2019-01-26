@@ -6,8 +6,10 @@
 
 <h1>Liste des articles de veille</h1>
 
-<div class="row">
-    <a href="{{ path('admin_watch_article_add') }}" class="btn btn-primary">Ajouter un article</a>
+<div class="row my-4">
+    <div class="col">
+        <a href="{{ path('admin_watch_article_add') }}" class="btn btn-primary">Ajouter un article</a>
+    </div>
 </div>
 
 <div class="row">
@@ -25,7 +27,13 @@
                 {% for article in articles %}
                 <tr>
                     <td><a href="{{ path('admin_watch_article_edit', {'id': article.id}) }}">{{ article.title }}</a></td>
-                    <td>{{ true }}</td>
+                    <td>
+                        {% if true %}
+                            <i class="fas fa-check-circle"></i>
+                        {% else %}
+                            <i class="fas fa-times-circle"></i>
+                    {% endif %}
+                    </td>
                     <td><a class="delete" href="{{ path('admin_watch_article_delete', {'id': article.id}) }}" title="Supprimer" data-delete="true" data-confirm="Are you sure?" rel="nofollow"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
                 {% endfor %}
