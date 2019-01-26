@@ -38,6 +38,15 @@
             <li>
                 <a href="{{ path('admin_society_index') }}"><i class="fas fa-building"></i> Société</a>
             </li>
+            <hr>
+            <li>
+                <a href="{{ path('home') }}"><i class="fas fa-coffee"></i> Retour au site</a>
+            </li>
+            {% if app.user %}
+                <li>
+                    <a href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
     <!-- Fin Sidebar -->

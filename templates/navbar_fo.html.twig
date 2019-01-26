@@ -22,5 +22,12 @@
                 <a class="nav-link" href="{{ path('contact') }}">Contact</a>
             </li>
         </ul>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            {% if not app.user %}
+                <a class="btn btn-primary" href="{{ path('app_login') }}"><i class="fas fa-user"></i> Se connecter</a>
+            {% else %}
+                <a class="btn btn-primary" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+            {% endif %}
+        </ul>
     </div>
 </nav>
