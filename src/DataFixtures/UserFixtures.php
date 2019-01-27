@@ -35,11 +35,11 @@ class UserFixtures extends Fixture
         // }
 
         $user = new User();
-        $user->setUsername('Sébastien');
-        $user->setEmail('sebastien.vallet89@gmail.com');
+        $user->setUsername($this->getParameter('admin_username'));
+        $user->setEmail($this->getParameter('admin_email'));
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
-            '@dm!n89*'
+            $this->getParameter('admin_password')
         ));
         $user->setRoles([
             'ROLE_ADMIN'

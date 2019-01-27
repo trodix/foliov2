@@ -19,36 +19,26 @@
     </div>
     
     <div class="row">
-        <div class="col-5">
-            <div class="row">
-                {{ form_row(form.image) }}
-            </div>    
-            <div class="row">
-                {% if skill is defined and skill.image is not null %}
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Image actuelle</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset(ressource_path.skill.image) }}" alt="" height=150>
-                                </td>
-                                <td>
-                                    <a href="{{ path('admin_skill_image_delete', {'id': skill.id}) }}" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> 
-                {% endif %}
-            </div>
+        <div class="col-6">
+            {{ form_row(form.image) }}
+        </div>
+        <div class="col-6">
+            {% if skill is defined and skill.image is not null %}
+                <div class="row d-flex justify-content-center">
+                    <img src="{{ asset(ressource_path.skill.image) }}" alt="" height=150>
+                </div>
+                <div class="row d-flex justify-content-center my-1">
+                    <a href="{{ path('admin_skill_image_delete', {'id': skill.id}) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt white"></i> Supprimer</a>
+                </div>
+            {% endif %}
         </div>
     </div>
-    
-        <input type="submit" class="btn btn-success" value="Enregistrer">
-        {{ form_rest(form) }}
+    <div class="row">
+        <div class="col-12">
+            <input type="submit" class="btn btn-success" value="Enregistrer">
+        </div>
+    </div>
+        
+    {{ form_rest(form) }}
     {{ form_end(form) }}
 </div>

@@ -1,9 +1,15 @@
-.form-control, .custom-file-label, .btn {
-    border-radius: 0;
+.form-control, .custom-file-label, .custom-file-label::after, .btn{
+    border-radius: 50px;
 }
 
 h1 {
     color: #e67e22;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
 .fa-trash-alt, .fa-times-circle {
@@ -12,6 +18,10 @@ h1 {
 
 .fa-check-circle {
     color: #27ae60;
+}
+
+.icon-big {
+    font-size: 2em;
 }
 
 a:hover .fas {
@@ -29,4 +39,24 @@ a.btn {
 
 a:hover {
     color: #0555ac;
+}
+
+.container  {
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    padding: 25px;
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+form > .row {
+    margin-top: 30px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.white {
+    color: white;
 }

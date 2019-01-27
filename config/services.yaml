@@ -8,6 +8,10 @@ parameters:
     uploads_directory: '%kernel.project_dir%/public/uploads/library'
     skill_directory: '%kernel.project_dir%/public/uploads/library/skill'
     watch_article_directory: '%kernel.project_dir%/public/uploads/library/watch_article'
+    # default admin user
+    admin_username: 'admin'
+    admin_email: 'root@localhost'
+    admin_password: '\@dm!n89*' # \ escapes @, otherwise this refers to a service
 
 services:
     # default configuration for services in *this* file

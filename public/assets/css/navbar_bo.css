@@ -72,6 +72,7 @@ p {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    border-radius: 50px;
 }
 #sidebar ul li a:hover {
     color: #444444;
