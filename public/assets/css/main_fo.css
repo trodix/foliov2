@@ -1,0 +1,72 @@
+footer {
+  background-color: #525252;
+  color: white;
+}
+footer a {
+  color: #fff;
+}
+h1 {
+  color: #f39c12;
+}
+footer a:hover {
+  color: #f39c12;
+}
+.form-control,
+.custom-file-label,
+.btn {
+  border-radius: 0;
+}
+/* Socials */
+.social-icons {
+  font-size: 2em;
+  background-color: #fff;
+}
+a:hover > i.fab {
+  color: #ccc;
+}
+.fa-facebook {
+  color: #396AAE;
+}
+.fa-twitter {
+  color: #00ACED;
+}
+.fa-linkedin {
+  color: #007BB6;
+}
+.fa-github {
+  color: #282D31;
+}
+.fa-youtube {
+  color: #BB0000;
+}
+/* end Socials */
+/* dropdown */
+.dropdown-menu {
+  border-radius: 0;
+}
+.navbar-brand,
+.navbar-brand:hover {
+  color: #fff;
+}
+.navbar-brand:hover {
+  text-shadow: 2px 2px 4px #fff;
+  transform: rotate(-350deg);
+}
+nav.navbar {
+  background-color: #F45E24;
+  color: #fff;
+}
+.nav-link {
+  color: #fff;
+  border-radius: 0;
+}
+.active a,
+.nav-link:hover {
+  background-color: #fff;
+  font-weight: bold;
+  color: #000 !important;
+  border-radius: 0;
+}
+.dropdown-item:hover {
+  color: #F45E24;
+}

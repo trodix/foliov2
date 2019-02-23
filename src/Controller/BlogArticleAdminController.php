@@ -10,7 +10,6 @@ use App\Service\Handler\BlogArticleAdminHandler;
 use App\Service\Provider\BlogArticleAdminProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-
 /**
  * @Route("/admin", name="admin_")
  */

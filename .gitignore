@@ -19,3 +19,4 @@
 /public/uploads/
 /public/assets/library/
 !/public/assets/library/.gitkeep
+.idea
