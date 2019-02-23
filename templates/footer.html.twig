@@ -1,5 +1,5 @@
 {% set _society = global.getSociety %}
-
+{% if _society is not null %}
 <div class="fixed-bottom">
     <footer class="py-5">
         <div class="container">
@@ -43,4 +43,5 @@
         </div>
     </footer>
 </div>
+{% endif %}
 

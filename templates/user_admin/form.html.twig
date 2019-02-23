@@ -1,0 +1,31 @@
+{% trans_default_domain 'admin' %}
+
+<div class="container">
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col">
+            {{ form_errors(form) }}
+        </div>     
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.email) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.password.first) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.password.second) }}
+        </div>
+    </div>
+
+        <input type="submit" class="btn btn-success" value="Enregistrer">
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>

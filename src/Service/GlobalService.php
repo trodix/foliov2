@@ -10,7 +10,9 @@ class GlobalService
     private $societyAdminProvider;
 
     public function __construct(SocietyAdminProvider $societyAdminProvider){
+
         $this->societyAdminProvider = $societyAdminProvider;
+
     }
 
     public function getSociety() {
