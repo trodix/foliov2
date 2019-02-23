@@ -2,6 +2,9 @@ footer {
   background-color: #525252;
   color: white;
 }
+body {
+  min-height: 800px;
+}
 footer a {
   color: #fff;
 }
