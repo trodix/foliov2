@@ -35,9 +35,10 @@ class SkillProvider extends CommonProvider
 	
 	public function getOneBySlug(String $slug)
 	{
-		return $this->skillRepo->findOneBy([
-			"headlineSlug" => $slug
-		]);
+		return $this->skillRepo->findOneBy(
+			["headlineSlug" => $slug],
+			["_order" => "ASC"]
+		);
 	}
 
 }

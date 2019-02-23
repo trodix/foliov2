@@ -35,9 +35,10 @@ class WatchArticleProvider extends CommonProvider
 	
 	public function getOneBySlug(String $slug)
 	{
-		return $this->watchArticleRepo->findOneBy([
-			"titleSlug" => $slug
-		]);
+		return $this->watchArticleRepo->findOneBy(
+			["titleSlug" => $slug],
+			["_order" => "ASC"]
+		);
 	}
 
 }
