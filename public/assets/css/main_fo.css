@@ -2,8 +2,8 @@ footer {
   background-color: #525252;
   color: white;
 }
-body {
-  min-height: 800px;
+body > .container{
+  min-height: 500px;
 }
 footer a {
   color: #fff;
@@ -52,7 +52,6 @@ a:hover > i.fab {
   color: #fff;
 }
 .navbar-brand:hover {
-  text-shadow: 2px 2px 4px #fff;
   transform: rotate(-350deg);
 }
 nav.navbar {
