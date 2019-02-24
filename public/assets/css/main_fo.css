@@ -54,6 +54,20 @@ a:hover > i.fab {
 .navbar-brand:hover {
   transform: rotate(-350deg);
 }
+.navbar-toggler i {
+  color: white;
+  font-size: 1.8em;
+}
+
+.navbar-toggler {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.navbar-toggler[aria-expanded="true"] {
+  transform: rotate(-350deg);
+}
+
 nav.navbar {
   background-color: #F45E24;
   color: #fff;
